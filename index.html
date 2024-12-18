@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="img/logo.png" alt="Profile Picture">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#family">Family Background</a>
+        <a href="#school">School Data</a>
+        <a href="#personal">Personal Data</a>
+        <a href="#emergency">In Case of Emergency</a>
+        <a href="#references">References</a>
+    </div>
+    
+    <main id="#home">
+        <h1>Hi, Im Justin D. Pilapil</h1>
+        <h3>Information Technology</h3>
+    </main>
+
+    <div class="content">
+        <section id="about" class="fade-up-left">
+            <h1>About Me</h1>
+            <p><strong>Full Name:</strong> Pilapil, Justin D.</p>
+            <p><strong>Present Address:</strong> Timbain, City of Calaca, Batangas</p>
+            <p><strong>Mobile No.:</strong> 09456914676</p>
+            <p><strong>Email Address:</strong> pilapil.justin.c210686@gmail.com</p>
+        </section>
+
+        <section id="family" class="fade-up-left">
+            <h1>Family Background</h1>
+            <p><strong>Father's Name:</strong> Pilapil, Eugenio D. | <strong>Occupation:</strong> None</p>
+            <p><strong>Mother's Name:</strong> Pilapil Isabelita D. | <strong>Occupation:</strong> Housewife</p>
+            <p><strong>Address of Parents:</strong> Timbain, City of Calaca, Batangas | <strong>Tel. No.:</strong> 09464262466</p>
+        </section>
+
+        <section id="school" class="fade-up-left">
+            <h1>School Data</h1>
+            <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+            <p><strong>Year Level:</strong> 3rd Year</p>
+            <p><strong>College:</strong> Westmead International School</p>
+            <p><strong>Department:</strong> College of Information Technology and Computer Science</p>
+            <p><strong>School Address:</strong> Alangilan, Batangas</p>
+            <p><strong>Training Coordinator:</strong> Prof. Antonio A. Maligaya | <strong>Tel. No.:</strong> 09949866083</p>
+            <p><strong>College Dean/Program Chair:</strong> Prof. Rosana B. De Chavez | <strong>Tel. No.:</strong> 09088950595</p>
+        </section>
+
+        <section id="personal" class="fade-up-left">
+            <h1>Personal Data</h1>
+            <p><strong>Age:</strong> 21</p>
+            <p><strong>Citizenship:</strong> Filipino</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Status:</strong> Single</p>
+            <p><strong>Height:</strong> 5'9</p>
+            <p><strong>Weight:</strong> 81 kg</p>
+            <p><strong>Date of Birth:</strong> December 17, 2002</p>
+            <p><strong>Place of Birth:</strong> City of Calaca, Batangas</p>
+        </section>
+
+        <section id="emergency" class="fade-up-left">
+            <h1>In Case of Emergency</h1>
+            <p><strong>Name:</strong> Pilapil Isabelita D.</p>
+            <p><strong>Relationship:</strong> Mother</p>
+            <p><strong>Address:</strong> Timbain, City of Calaca, Batangas</p>
+            <p><strong>Tel. No.:</strong> 09913314340</p>
+        </section>
+
+        <section id="references" class="fade-up-left">
+            <h1>References</h1>
+            <p><strong>Prof. Antonio A. Maligaya</strong><br>
+                IACEPO Assistant Director<br>
+                09457450019 / 09949866083</p>
+            <p><strong>Prof. Rosana B. De Chavez</strong><br>
+                Information Technology and Computer Science Program Chair<br>
+                09088950595</p>
+        </section>
+    </div>
+
+    <script>
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 }); 
+
+        document.querySelectorAll('.fade-up-left').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        color: #eee;
+    }
+    main {
+        align-content: center;
+        text-align: center;
+        margin-left: 200px;
+        height: 100vh;
+        font-size: 30px;
+    }
+
+    h1, h2, h3 {
+        color: gold;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: rgb(4, 51, 104);
+        overflow-x: hidden;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .sidebar img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        border: 3px solid gold;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 18px;
+        color: #eee;
+        border-bottom: 1px solid grey;
+    }
+
+    .sidebar a:hover {
+        background-color: grey;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+    }
+
+    section {
+        margin-bottom: 40px;
+        border: 1px solid gold;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0; 
+        transform: translateX(-100px); 
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+        opacity: 1; 
+        transform: translateX(0);
+    }
+
+    .fade-up-left {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up-left.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
